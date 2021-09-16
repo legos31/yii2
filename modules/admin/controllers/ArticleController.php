@@ -3,6 +3,7 @@
 namespace app\modules\admin\controllers;
 
 use app\models\Article;
+use app\models\ImageUpload;
 use app\models\ArticleSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -129,5 +130,11 @@ class ArticleController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    public function actionUploadImage($id)
+    {
+       $model = new ImageUpload;
+       return $this->render('image', ['model'=> $model]);
     }
 }
