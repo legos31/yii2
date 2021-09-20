@@ -12,6 +12,8 @@ nbproject
 # windows thumbnail cache
 Thumbs.db
 
+config/db.php
+
 # composer vendor dir
 /vendor
 /web/uploads
@@ -32,3 +34,4 @@ tests/_support/_generated
 
 #vagrant folder
 /.vagrant
+config/db.php
