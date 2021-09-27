@@ -20,4 +20,9 @@ class SignupForm extends Model
             [['email'], 'unique', 'targetClass'=>'app\models\User', 'targetAttribute'=>'email'],            
         ];
     }
+
+    public function signup()
+    {
+        # code...
+    }
 }
