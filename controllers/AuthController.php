@@ -25,7 +25,7 @@ class AuthController extends Controller
             return $this->goBack();
         }
         //d($model->getAttributes());
-        return $this->render('/site/login', [
+        return $this->render('login', [
             'model' => $model,
         ]);
     }
@@ -40,5 +40,10 @@ class AuthController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    public function actionSignup()
+    {
+        return $this->render('signup');
     }
 }
