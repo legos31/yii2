@@ -94,6 +94,11 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         return User::find()->where(['email'=>$email])->one();
     }
 
+    public static function findByName($name)
+    {
+        return User::find()->where(['name'=>$name])->one();
+    }
+
     public function validatePassword($password)
     {
         return ($this->password == $password) ? true : false;
