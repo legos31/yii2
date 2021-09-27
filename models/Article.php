@@ -5,6 +5,7 @@ namespace app\models;
 use Yii;
 use app\models\ImageUpload;
 use yii\helpers\ArrayHelper;
+use yii\i18n\Formatter;
 
 /**
  * This is the model class for table "article".
@@ -154,6 +155,12 @@ class Article extends \yii\db\ActiveRecord
     public function clearCurrentTags()
     {
         ArticleTag::deleteAll(['article_id'=>$this->id]);
+    }
+
+    public function getDate()
+    {
+        $formatter = \Yii::$app->formatter;
+        return $formatter->asDate($this->date, 'long');
     }
 
 }
