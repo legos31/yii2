@@ -44,9 +44,8 @@ PublicAsset::register($this);
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                 <ul class="nav navbar-nav text-uppercase">
-                    <li><a data-toggle="dropdown" class="dropdown-toggle" href="/">Home</a>
-
-                    </li>
+                    <li><a data-toggle="dropdown" class="dropdown-toggle" href="/">Home</a></li>
+                    <li><a href="<?= Url::toRoute(['admin/article'])?>">Admin</a></li>
                 </ul>
 
                 <div class="i_con">

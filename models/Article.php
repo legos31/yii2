@@ -6,6 +6,7 @@ use Yii;
 use app\models\ImageUpload;
 use yii\helpers\ArrayHelper;
 use yii\i18n\Formatter;
+use yii\helpers\Url;
 
 /**
  * This is the model class for table "article".
@@ -161,6 +162,27 @@ class Article extends \yii\db\ActiveRecord
     {
         $formatter = \Yii::$app->formatter;
         return $formatter->asDate($this->date, 'long');
+    }
+
+    public static function getPopular()
+    {
+        return Article::find()->orderBy('viewed desc')->limit(3)->all();
+    }
+
+    public static function getRecent()
+    {
+        return Article::find()->orderBy('date asc')->limit(4)->all();
+    }
+
+    public function getArticleComments()
+    {
+        return $this->getComments()->where(['status'=>1])->all();
+    }
+
+    public function saveArticle()
+    {
+        $this->user_id = Yii::$app->user->id;
+        return $this->save(false);
     }
 
 }
